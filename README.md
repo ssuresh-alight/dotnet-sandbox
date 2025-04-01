@@ -11,6 +11,8 @@ dotnet build
 # install template
 dotnet new install .
 dotnet run
+# or specific test number if you already know index:
+dotnet run 7
 ```
 
 ## Adding new tests

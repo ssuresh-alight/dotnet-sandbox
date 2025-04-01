@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Reflection;
-using System.Threading.Tasks;
 using Sandbox.Tests;
 
 namespace Sandbox;
@@ -31,12 +30,22 @@ public class TestManager
 			"""
         );
         var choiceInput = Console.ReadLine();
-        if (!int.TryParse(choiceInput?.Trim(), out int choice) || choice < 0 || choice >= testOptions.Count)
+        if (!int.TryParse(choiceInput?.Trim(), out int choice))
         {
-            Console.WriteLine("Bad choice. Not a valid option.");
+            Console.WriteLine("Invalid value entered for choice. Must be a number.");
             throw new ArgumentException(nameof(choiceInput));
         }
-        return tests[choice];
+        return GetTestAtIndex(choice, tests);
+    }
+
+    public static Type GetTestAtIndex(int index, IList<Type> tests)
+    {
+        if (index < 0 || index >= tests.Count)
+        {
+            Console.WriteLine("Bad choice. Not a valid option.");
+            throw new ArgumentException(nameof(index));
+        }
+        return tests[index];
     }
 
     public static async Task ExecuteTest(Type sandboxTestType)
