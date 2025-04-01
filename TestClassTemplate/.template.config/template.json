@@ -5,12 +5,19 @@
     "identity": "TestClassTemplate",
     "name": "Test Class Template",
     "shortName": "testclass",
-    "sourceName": "SomeTest",
+    "sourceName": "TemplateClass",
     "symbols": {
         "className": {
             "type": "parameter",
             "datatype": "text",
-            "replaces": "SomeTest"
+            "replaces": "TemplateClass",
+            "description": "Name of test class being generated"
+        },
+        "async": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false",
+            "description": "Whether to generate an async test class or not"
         }
     },
     "tags": {

@@ -22,3 +22,9 @@ For ease of use, the template provided can be used:
 ```sh
 dotnet new testclass -n NewTest
 ```
+
+or for async tests:
+
+```sh
+dotnet new testclass -n NewTest --async
+```
